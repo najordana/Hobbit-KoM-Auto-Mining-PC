@@ -3,7 +3,7 @@
 AutoItSetOption('MouseCoordMode', 0)
 WinActivate('Bluestacks App Player')
 HotKeySet("q","Quit")
-
+//Image isn't found after 3 attempts and 3 different images and screenshots//
 Func WatchTowerSearch()
    MouseClick("Primary", 566, 138)
    Sleep(300)
