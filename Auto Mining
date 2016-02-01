@@ -54,3 +54,4 @@ Func WatchTowerSearch()
 	  MouseClick("Primary". $x, $y, 1)
    EndIf
 EndFunc
+Exit
