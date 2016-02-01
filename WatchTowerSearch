@@ -1,0 +1,66 @@
+#include <ImageSearch.au3>
+
+AutoItSetOption('MouseCoordMode', 0)
+WinActivate('Bluestacks App Player')
+HotKeySet("q","Quit")
+
+Func WatchTowerSearch()
+   MouseClick("Primary", 566, 138)
+   Sleep(300)
+   MouseClick("Primary", 591, 74)
+   Sleep(300)
+   MouseClick("Primary", 342, 456)
+   Sleep(3000)
+   Local $x = 0, $y = 0
+   $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+   If $Search = 1 Then
+	  MouseClick("Primary", $x, $y, 1)
+   Else
+	  MouseClickDrag("Primary", 347, 291, 623, 306)
+	  Sleep(3000)
+	  $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+	  If $Search = 1 Then
+		 MouseClick("Primary", $x, $y, 1)
+	  Else
+		 MouseClickDrag("Primary", 347, 291, 623, 306)
+		 Sleep(3000)
+		 $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+		 If $Search = 1 Then
+			MouseClick("Primary", $x, $y, 1)
+		 Else
+			MouseClickDrag("Primary", 625, 211, 335, 412)
+			Sleep(3000)
+			$Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+			If $Search = 1 Then
+			   MouseClick("Primary", $x, $y, 1)
+			Else
+			   MouseClickDrag("Primary", 625, 211, 335, 412)
+			   Sleep(3000)
+			   $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+			   If $Search = 1 Then
+				  MouseClick("Primary", $x, $y, 1)
+			   Else
+				  MouseClickDrag("Primary", 619, 396, 471, 264 )
+				  Sleep(3000)
+				  $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+				  If $Search = 1 Then
+					 MouseClick("Primary", $x, $y, 1)
+				  Else
+					 MouseClickDrag("Primary", 619, 396, 471, 264 )
+					 Sleep(3000)
+					 $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+					 If $Search = 1 Then
+						MouseClick("Primary", $x, $y, 1)
+					 EndIf
+				  EndIf
+			   EndIf
+			EndIf
+		 EndIf
+	  EndIf
+   EndIf
+EndFunc
+
+Func Quit()
+   Exit
+EndFunc
+WatchTowerSearch()
