@@ -1,7 +1,7 @@
 #include <ImageSearch.au3>
 AutoItSetOption('MouseCoordMode', 0)
 WinActivate('Bluestacks App Player')
-
+//Use this for testing images just replace the WatchTower.PNG file//
 Local $x = 0, $y = 0
    $Search = _ImageSearch("WatchTower.PNG", 1, $x, $y, 0)
    If $Search = 1 Then
