@@ -1,0 +1,11 @@
+#include <ImageSearch.au3>
+AutoItSetOption('MouseCoordMode', 0)
+WinActivate('Bluestacks App Player')
+
+Local $x = 0, $y = 0
+   $Search = _ImageSearch("WatchTower.PNG", 1, $x, $y, 0)
+   If $Search = 1 Then
+	  MouseClick("Primary", $x, $y, 1)
+   Else
+	  MsgBox(0,"Error", "Not Found")
+   EndIf
