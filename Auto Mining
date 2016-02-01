@@ -1,0 +1,56 @@
+#include <ImageSearch.au3>
+#pragma compile(ProductVersion, 1.0)
+#pragma compile(FileVersion, 1.0.0)
+#pragma compile(Out, autominer.exe)
+
+Global $user, $password, $welcome, $counter, $Y = 0, $X = 0
+
+Run("C:\ProgramData\BlueStacksGameManager\BlueStacks.exe")
+AutoItSetOption('MouseCoordMode', 0)
+WinWait('Bluestacks App Player')
+WinActivate('Bluestacks App Player')
+Sleep(5000)
+MouseClick("Primary",191,15,1,0)
+Sleep(5000)
+MouseClick("Primary",480,288,1,0)
+
+Func OneTimeSetupScreen()
+   Local $x = 0, $y = 0
+   $Search = _ImageSearch("OneTimeSetupScreen.BMP",1, $x, $y, 0)
+   If $Search = 1 Then
+		 Send("{ESC}")
+   EndIf
+EndFunc
+
+Func RunHobbit()
+   Local $x = 0, $y = 0
+   $Search = _ImageSearch("BSHobbitApp.BMP", 1, $x, $y, 0)
+   If $Search = 1 Then
+       MouseClick("Primary",$x, $y, 1)
+   Endif
+EndFunc
+
+Func StartupChance()
+   Local $x = 0, $y = 0
+   $Search = _ImageSearch("StartupChance.BMP", 1, $x, $y, 0)
+   If $Search = 1 Then
+	  Send("{ESC}")
+   EndIf
+EndFunc
+
+Sleep(100)
+OneTimeSetupScreen()
+RunHobbit()
+Sleep(25000)
+StartupChance()
+Func WatchTowerSearch()
+   Local $x = 0, $y = 0
+   $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+   If $Search = 1 Then
+	  MouseClick("Primary". $x, $y, 1)
+   Else MouseClickDrag("Primary", 347, 291, 623, 306) Then
+	  $Search = _ImageSearch("WatchTower.BMP", 1, $x, $y, 0)
+   If $Search = 1 Then
+	  MouseClick("Primary". $x, $y, 1)
+   EndIf
+EndFunc
